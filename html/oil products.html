@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+              
+                 <form id="gform" method="post" action="https://script.google.com/macros/s/AKfycbypQO_NN3Bp_wUcebJIgtsaC1sNa1j0BtEqfoS1EDzJiM3lWWEXFHbcCGd_d2k4GwvY/exec">
+                  
+                         <input type="checkbox" class="email-bt" name="ari"><label class="oil_product">Gold Winner</label><br>
+                      
+                         <input type="checkbox" class="email-bt" name="uzhunn"><label>Ruchi Gold</label><br>
+                      
+                         <input type="checkbox" class="email-bt" name="oil"><label>Sun Rich</label><br>
+
+                         <h3>"Once you've chosen your products, please fill out the form below with the required details." </h3>
+
+                        <input type="text" name="name"><label>Name</label><br>
+
+                        <input type="text" name="Location"><label>Location</label><br>
+
+                        <input type="tel" name="contactNumber" id="contactNumberInput">
+                        <label for="contactNumberInput">Contact Number</label>
+                        <span id="error-message" style="color: red;"></span>
+
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+  const contactNumberInput = document.getElementById('contactNumberInput');
+  const errorMessage = document.getElementById('error-message');
+
+  contactNumberInput.addEventListener('input', function() {
+    const contactNumber = contactNumberInput.value.trim();
+
+    if (!isValidContactNumber(contactNumber)) {
+      errorMessage.textContent = 'Please enter a valid contact number.';
+    } else {
+      errorMessage.textContent = '';
+    }
+  });
+
+  function isValidContactNumber(number) {
+    // Check if the number is a valid 10-digit numeric value
+    return /^\d{10}$/.test(number);
+  }
+  
+  // Additional validation or form submission logic can be added here
+});
+
+
+
+                        </script>
+
+                          <div class="send_btn">
+                            <input type="submit" class="main_bt" value="SEND">
+                          </div>
+                     
+                 </form>
+              
+
+               <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+ $(document).ready(function() {
+   $('#gform').submit(function(e) {
+     e.preventDefault(); // Prevent the form from submitting normally
+     
+     // Perform AJAX POST request
+     $.ajax({
+       type: 'POST',
+       url: 'https://script.google.com/macros/s/AKfycbypQO_NN3Bp_wUcebJIgtsaC1sNa1j0BtEqfoS1EDzJiM3lWWEXFHbcCGd_d2k4GwvY/exec',
+       data: $('#gform').serialize(), // Serialize form data
+       success: function(response) {
+         // Show a pop-up or alert upon successful submission
+         alert('Form submitted successfully!');
+         // You can customize this to display a modal or a different pop-up message
+         
+         // Clear form fields after successful submission
+         $('#gform')[0].reset();
+       },
+       error: function(error) {
+         // Handle errors, if any
+         console.error('Error:', error);
+         // You can display an error message here
+       }
+     });
+   });
+ });
+</script>
+</body>
+</html>
